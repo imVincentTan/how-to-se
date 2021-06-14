@@ -13,6 +13,7 @@ import { FrontendLibrariesNotesComponent } from './frontend-libraries-notes/fron
 import { CoreDevToolsNotesComponent } from './core-dev-tools-notes/core-dev-tools-notes.component';
 import { CSharpDotNetNotesComponent } from './c-sharp-dot-net-notes/c-sharp-dot-net-notes.component';
 import { SqlNotesComponent } from './sql-notes/sql-notes.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SqlNotesComponent } from './sql-notes/sql-notes.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
