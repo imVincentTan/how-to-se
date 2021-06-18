@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { CoreDevToolsNotesComponent } from './core-dev-tools-notes/core-dev-tool
 import { CSharpDotNetNotesComponent } from './c-sharp-dot-net-notes/c-sharp-dot-net-notes.component';
 import { SqlNotesComponent } from './sql-notes/sql-notes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CurrentTimeComponent } from './current-time/current-time.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +29,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FrontendLibrariesNotesComponent,
     CoreDevToolsNotesComponent,
     CSharpDotNetNotesComponent,
-    SqlNotesComponent
+    SqlNotesComponent,
+    CurrentTimeComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule

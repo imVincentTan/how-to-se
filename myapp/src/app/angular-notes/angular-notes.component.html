@@ -13,7 +13,9 @@
         <h2>RxJS</h2>
         <p>
             To learn more about RxJS, you can visit the documentation 
-            <a href="https://rxjs.dev/">here</a>.
+            <a href="https://rxjs.dev/">here</a> 
+            and Angular specific notes 
+            <a href="https://angular.io/guide/rx-library">here</a>.
         </p>
         <p>
             Basically, RxJS is a library that makes it easier to write asynchronous code. It also makes state management easier to write cleaner, more managable code.
@@ -22,8 +24,8 @@
         <h2>Async</h2>
         <p>
             To understand what asynchronous programming is and what it's used for, check out 
-            <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous">this article</a>
-             by mozilla.
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous">this article</a> 
+            by mozilla.
         </p>
         <p>
             But basically, JavaScript in its most basic form is synchronous, blocking, and single-threaded, where only one operation can be in progress at one time. 
@@ -33,8 +35,96 @@
             In vanilla JavaScript, we'd typically see two main types of asynchronous code - old-style callbacks and newer promise code. However, in Angular, we can use 
             <a href="#">RxJS</a>.
         </p>
+        <p>
+            The following is a code snippet of the .ts file for a component that observes the 
+            <a href="http://worldtimeapi.org/">World Time API</a> 
+            and updates the time, and the actual compnent itself.
+        </p>
+        
+        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+            <ngb-panel title="current-time.components.ts">
+                <ng-template ngbPanelContent>
+                    <pre><code>
+import &#123; Component, OnInit &#125; from '@angular/core';
+import &#123; CurrentTime, CurrentTimeService &#125; from './current-time.service'
+
+@Component(&#123;
+    selector: 'app-current-time',
+    templateUrl: './current-time.component.html',
+    providers: [ CurrentTimeService ],
+    styleUrls: ['./current-time.component.scss']
+&#125;)
+export class CurrentTimeComponent implements OnInit &#123;
+    
+    error: any;
+    currentTime: CurrentTime | undefined;
+
+    constructor(private currentTimeService: CurrentTimeService
+    ) &#123; &#125;
+
+    ngOnInit(): void &#123;
+    this.showTime()
+    &#125;
+
+    showTime() &#123;
+    this.currentTimeService.getTime()
+        .subscribe(
+        data => &#123;
+            this.currentTime = &#123; ...data &#125;
+        &#125;,
+        error => this.error = error
+        );
+    &#125;
+&#125;
+                    </code></pre>
+                </ng-template>
+            </ngb-panel>
+            <ngb-panel title="current-time.service.ts">
+                <ng-template ngbPanelContent>
+                    <pre><code>
+import &#123; Injectable &#125; from '@angular/core';
+// http
+import &#123; HttpClient &#125; from '@angular/common/http';
+import &#123; HttpErrorResponse, HttpResponse &#125; from '@angular/common/http';
+// rxjs
+import &#123; Observable, throwError &#125; from 'rxjs';
+import &#123; catchError, retry &#125; from 'rxjs/operators';
+
+export interface CurrentTime &#123;
+    datetime: string;
+    timezone: string;
+&#125;
+
+@Injectable(&#123;
+    providedIn: 'root'
+&#125;)
+export class CurrentTimeService &#123;
+
+    private timeUrl = 'http://worldtimeapi.org/api/ip';
+
+    constructor(private http: HttpClient) &#123; &#125;
+
+    getTime() &#123;
+    return this.http.get&lt;CurrentTime&gt;(this.timeUrl)
+    &#125;
+
+    private handleError (error: HttpErrorResponse)&#123;
+    console.error();
+    &#125;
+&#125;
+                    </code></pre>
+                </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
 
         
+        <p>
+            The <code>timezone</code> and <code>datetime</code>:
+        </p>
+        <app-current-time>
+        </app-current-time>
+        
+
 
 
         <h2>State management</h2>
