@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,13 +31,14 @@ import { CurrentTimeComponent } from './current-time/current-time.component';
     CoreDevToolsNotesComponent,
     CSharpDotNetNotesComponent,
     SqlNotesComponent,
-    CurrentTimeComponent
+    CurrentTimeComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
