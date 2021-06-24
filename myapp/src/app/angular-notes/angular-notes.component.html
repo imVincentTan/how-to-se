@@ -13,9 +13,9 @@
         <h2>RxJS</h2>
         <p>
             To learn more about RxJS, you can visit the documentation 
-            <a href="https://rxjs.dev/">here</a> 
+            <a href="https://rxjs.dev/" target="_blank" rel="noopener" aria-label="RxJS documentation">here</a> 
             and Angular specific notes 
-            <a href="https://angular.io/guide/rx-library">here</a>.
+            <a href="https://angular.io/guide/rx-library" target="_blank" rel="noopener" aria-label="Angular specific notes">here</a>.
         </p>
         <p>
             Basically, RxJS is a library that makes it easier to write asynchronous code. It also makes state management easier to write cleaner, more managable code.
@@ -24,7 +24,7 @@
         <h2>Async</h2>
         <p>
             To understand what asynchronous programming is and what it's used for, check out 
-            <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous">this article</a> 
+            <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous" target="_blank" rel="noopener" aria-label="asynchronous notes">this article</a> 
             by mozilla.
         </p>
         <p>
@@ -37,14 +37,14 @@
         </p>
         <p>
             The following is a code snippet of the .ts file for a component that observes the 
-            <a href="http://worldtimeapi.org/">World Time API</a> 
+            <a href="http://worldtimeapi.org/" target="_blank" rel="noopener" aria-label="world time api">World Time API</a> 
             and updates the time, and the actual compnent itself.
         </p>
-        
-        <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-            <ngb-panel title="current-time.components.ts">
-                <ng-template ngbPanelContent>
-                    <pre><code>
+        <div  class="mb-3">
+            <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+                <ngb-panel title="current-time.components.ts">
+                    <ng-template ngbPanelContent>
+                        <pre><code>
 import &#123; Component, OnInit &#125; from '@angular/core';
 import &#123; CurrentTime, CurrentTimeService &#125; from './current-time.service'
 
@@ -76,12 +76,12 @@ export class CurrentTimeComponent implements OnInit &#123;
         );
     &#125;
 &#125;
-                    </code></pre>
-                </ng-template>
-            </ngb-panel>
-            <ngb-panel title="current-time.service.ts">
-                <ng-template ngbPanelContent>
-                    <pre><code>
+                        </code></pre>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel title="current-time.service.ts">
+                    <ng-template ngbPanelContent>
+                        <pre><code>
 import &#123; Injectable &#125; from '@angular/core';
 // http
 import &#123; HttpClient &#125; from '@angular/common/http';
@@ -112,11 +112,12 @@ export class CurrentTimeService &#123;
     console.error();
     &#125;
 &#125;
-                    </code></pre>
-                </ng-template>
-            </ngb-panel>
-          </ngb-accordion>
-
+                        </code></pre>
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+        </div>
+        
         
         <p>
             The <code>timezone</code> and <code>datetime</code>:
