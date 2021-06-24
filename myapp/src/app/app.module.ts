@@ -17,6 +17,7 @@ import { CSharpDotNetNotesComponent } from './c-sharp-dot-net-notes/c-sharp-dot-
 import { SqlNotesComponent } from './sql-notes/sql-notes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CurrentTimeComponent } from './current-time/current-time.component';
+import { MapSampleComponent } from './map-sample/map-sample.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CurrentTimeComponent } from './current-time/current-time.component';
     CSharpDotNetNotesComponent,
     SqlNotesComponent,
     CurrentTimeComponent,
+    MapSampleComponent,
   ],
   imports: [
     HttpClientModule,
